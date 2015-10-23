@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="loginForm" type="com.bigtreetc.kenshuu.form.LoginForm"/>
+    <form-bean name="registerForm" type="com.bigtreetc.kenshuu.form.RegisterForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="login" path="/login.do"/>
+  </global-forwards>
+  <action-mappings>
+    <action path="/login" name="loginForm" type="com.bigtreetc.kenshuu.action.LoginAction" scope="request" validate="yes" input="/jsp/login.jsp">
+      <forward name="success" redirect="true" path="/viewList.do"/>
+      <forward name="failed" path="/jsp/login.jsp"/>
+    </action>
+    <action path="/logout" type="com.bigtreetc.kenshuu.action.LogoutAction" scope="request">
+      <forward name="success" redirect="true" path="/login.do"/>
+    </action>
+    <action path="/viewList" type="com.bigtreetc.kenshuu.action.ViewListAction" scope="request">
+      <forward name="view_list" path="/WEB-INF/jsp/view_list.jsp"/>
+    </action>
+    <action path="/register" name="registerForm" type="com.bigtreetc.kenshuu.action.RegisterAction" scope="request" input="/jsp/register.jsp">
+      <forward name="confirm" path="/WEB-INF/jsp/confirm.jsp"/>
+    </action>
+    <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
+      <forward name="success" path="/WEB-INF/jsp/register_success.jsp"/>
+    </action>
+  </action-mappings>
+  <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+  <message-resources parameter="MessageResources"/>
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+    <set-property property="moduleAware" value="true"/>
+  </plug-in>
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  </plug-in>
+</struts-config>
