@@ -4,9 +4,11 @@
   <form-beans>
     <form-bean name="loginForm" type="com.bigtreetc.kenshuu.form.LoginForm"/>
     <form-bean name="registerForm" type="com.bigtreetc.kenshuu.form.RegisterForm"/>
+    <form-bean name="deleteForm" type="com.bigtreetc.kenshuu.form.DeleteForm"/>
   </form-beans>
   <global-forwards>
     <forward name="login" path="/login.do"/>
+    <forward name="error" path="/WEB-INF/jsp/error.jsp"/>
   </global-forwards>
   <action-mappings>
     <action path="/login" name="loginForm" type="com.bigtreetc.kenshuu.action.LoginAction" scope="request" validate="yes" input="/jsp/login.jsp">
@@ -24,6 +26,15 @@
     </action>
     <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
       <forward name="success" path="/WEB-INF/jsp/register_success.jsp"/>
+    </action>
+    <action path="/update" type="com.bigtreetc.kenshuu.action.UpdateAction" name="registerForm" scope="request">
+     <forward name="update" path="/jsp/register.jsp"></forward>
+    </action>
+    <action path="/confirmdelete" type="com.bigtreetc.kenshuu.action.ConfirmDeleteAction" name="deleteForm" scope="request">
+      <forward name="delete" path="/WEB-INF/jsp/confirm_delete.jsp"></forward>
+    </action>
+    <action path="/delete" type="com.bigtreetc.kenshuu.action.DeleteAction" name="deleteForm" scope="request">
+    <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"></forward>
     </action>
   </action-mappings>
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

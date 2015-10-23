@@ -21,12 +21,14 @@ public class ViewListAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        // ログインチェック
         if (request.getSession().getAttribute("current_user") == null) {
             ActionMessages errors = new ActionMessages();
             errors.add("login_required", new ActionMessage("login_required", "errors.login_required"));
             saveErrors(request, errors);
             return mapping.findForward("login");
         }
+
         DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.ORACLE);
         UserDAO userDAO = daoFactory.getUserDAO();
 

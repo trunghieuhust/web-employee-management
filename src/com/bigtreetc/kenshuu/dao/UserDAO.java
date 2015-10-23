@@ -21,4 +21,5 @@ public interface UserDAO {
     public List<PostBean> getAllPost();
 
     public String getDeptNameByID(int deptID);
+
 }

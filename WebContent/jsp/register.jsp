@@ -1,6 +1,9 @@
+<%@page import="com.bigtreetc.kenshuu.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
+<%@ taglib uri="/tags/struts-bean" prefix="bean"%>
+<%@ taglib uri="/tags/struts-logic" prefix="logic"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +11,7 @@
 <title>社員情報登録入力</title>
 </head>
 <body>
-  <html:form action="/register.do" method="POST">
+  <html:form action="/register.do" method="get">
     <p>
       パスワード：
       <html:text property="empPass"></html:text>
@@ -57,22 +60,13 @@
         <html:option value="4">資材部</html:option>
       </html:select>
     </p>
-    <!--     <p> -->
-    <!--       部署： -->
-    <%--       <html:radio property="deptId" value="1"></html:radio> --%>
-    <!--       総務部 -->
-    <%--       <html:radio property="deptId" value="2"></html:radio> --%>
-    <!--       営業部 -->
-    <%--       <html:radio property="deptId" value="3"></html:radio> --%>
-    <!--       経理部 -->
-    <%--       <html:radio property="deptId" value="4"></html:radio> --%>
-    <!--       資材部 -->
-
-    <%--       <html:errors property="dept" /> --%>
-    <!--     </p> -->
     <p>
       <html:submit>確認</html:submit>
     </p>
+    <logic:present name="empId">
+      <html:hidden value=<%=request.getAttribute("empId").toString()%>  property="empId"
+        />
+    </logic:present>
   </html:form>
 
 </body>

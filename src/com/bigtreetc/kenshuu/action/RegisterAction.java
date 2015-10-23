@@ -39,7 +39,10 @@ public class RegisterAction extends Action {
         request.setAttribute("userBean", userBean);
         request.setAttribute("postBean", postBean);
         request.setAttribute("deptId", userBean.getPostBean().getPostId());
-
+        String empId = (String)request.getAttribute("empId");
+        if (empId != null && empId.length() > 00) {
+            request.setAttribute("empId", empId);
+        }
         return mapping.findForward("confirm");
     }
 }

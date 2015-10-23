@@ -35,7 +35,8 @@ public class ConfirmAction extends Action {
         postBean.setPostId(registerForm.getDeptId());
         userBean.setPostBean(postBean);
 
-        userDAO.insertNewEmployee(userBean);
+        System.out.println(request.getAttribute("empId"));
+//        userDAO.insertNewEmployee(userBean);
         return mapping.findForward("success");
     }
 }

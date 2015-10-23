@@ -12,6 +12,7 @@ public class RegisterForm extends ValidatorForm {
     private String birthday;
     private int deptId;
     private int authority;
+    private int empId;
 
     public String getEmpPass() {
         return empPass;
