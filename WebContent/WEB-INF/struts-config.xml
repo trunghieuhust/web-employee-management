@@ -27,14 +27,14 @@
     <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
       <forward name="success" path="/WEB-INF/jsp/register_success.jsp"/>
     </action>
-    <action path="/update" type="com.bigtreetc.kenshuu.action.UpdateAction" name="registerForm" scope="request">
-     <forward name="update" path="/jsp/register.jsp"></forward>
+    <action path="/update" name="registerForm" type="com.bigtreetc.kenshuu.action.UpdateAction" scope="request">
+      <forward name="update" path="/jsp/register.jsp"/>
     </action>
-    <action path="/confirmdelete" type="com.bigtreetc.kenshuu.action.ConfirmDeleteAction" name="deleteForm" scope="request">
-      <forward name="delete" path="/WEB-INF/jsp/confirm_delete.jsp"></forward>
+    <action path="/confirmdelete" name="deleteForm" type="com.bigtreetc.kenshuu.action.ConfirmDeleteAction" scope="request">
+      <forward name="delete" path="/WEB-INF/jsp/confirm_delete.jsp"/>
     </action>
-    <action path="/delete" type="com.bigtreetc.kenshuu.action.DeleteAction" name="deleteForm" scope="request">
-    <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"></forward>
+    <action path="/delete" name="deleteForm" type="com.bigtreetc.kenshuu.action.DeleteAction" scope="request">
+      <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"/>
     </action>
   </action-mappings>
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

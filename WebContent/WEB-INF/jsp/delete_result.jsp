@@ -9,10 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <logic:equal property="result" value="1">
+  <logic:equal name="result" value="1">
     ID=<bean:write name="result" />のユーザーが削除されました。
   </logic:equal>
-  <logic:equal property="result" value="0">
+  <logic:equal name="result" value="0">
   エラーが発生します。ID=<bean:write name="result" />のユーザーが削除できません。
   </logic:equal>
 </body>
