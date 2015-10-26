@@ -14,6 +14,13 @@
   <p>
     <bean:message key="message.confirm" />
   </p>
+  <logic:present name="userBean" property="empId">
+    <p>
+      <bean:write name="userBean" property="empId" />
+    </p>
+
+  </logic:present>
+
   <p>
     パスワード：
     <bean:write name="userBean" property="empPass" />
@@ -44,13 +51,16 @@
     <bean:write name="postBean" property="postName" />
   </p>
   <html:form action="/confirm" method="post">
+    <logic:present name="userBean" property="empId">
+      <html:hidden name="userBean" property="empId" />
+    </logic:present>
     <html:hidden property="empPass" />
     <html:hidden property="empName" />
     <html:hidden property="gender" />
     <html:hidden property="address" />
     <html:hidden property="birthday" />
     <html:hidden property="deptId" />
-    <html:submit>登録</html:submit>
+    <html:submit>保存</html:submit>
   </html:form>
 </body>
 

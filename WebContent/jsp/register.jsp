@@ -8,30 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>社員情報登録入力</title>
+<title>社員情報入力</title>
 </head>
 <body>
-  <%
-    String actionURL = "/register.do";
-  %>
 
-  <logic:present name="empId">
-    <%
-      actionURL = "/confirm.do";
-    %>
-  </logic:present>
-
-  <html:form action="<%=actionURL%>" method="get">
+  <html:form action="/register.do" method="post">
+    <logic:present name="empId">
+      <p>ID=${empId }情報更新入力</p>
+    </logic:present>
     <p>
+      <logic:notPresent name="empId">
+        <p>社員情報登録入力</p>
+      </logic:notPresent>
       パスワード：
       <html:text property="empPass"></html:text>
-      <html:errors property="password" />
+      <html:errors property="empPass" />
     </p>
     <p>
       社員名：
       <html:text property="empName"></html:text>
 
-      <html:errors property="name" />
+      <html:errors property="empName" />
     </p>
     <p>
       性別：
@@ -70,12 +67,13 @@
         <html:option value="4">資材部</html:option>
       </html:select>
     </p>
-    <p>
-      <html:submit>確認</html:submit>
-    </p>
     <logic:present name="empId">
       <html:hidden value="${empId}" property="empId" />
     </logic:present>
+
+    <p>
+      <html:submit>確認</html:submit>
+    </p>
   </html:form>
 
 </body>

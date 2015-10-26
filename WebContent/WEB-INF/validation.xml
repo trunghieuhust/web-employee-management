@@ -24,5 +24,9 @@
                              </var>
                       </field>
                </form>
+               <form name="registerForm">
+              <field property="empPass" depends="required">
+        </field>
+               </form>
        </formset>
 </form-validation>

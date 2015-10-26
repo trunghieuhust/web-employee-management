@@ -31,6 +31,10 @@ public class RegisterAction extends Action {
         userBean.setEmpPass(registerForm.getEmpPass());
         userBean.setGender(registerForm.getGender());
 
+        // 更新の場合、EmpId属性が指定します。
+        System.out.println("register action: " + registerForm.getEmpId());
+        userBean.setEmpId(registerForm.getEmpId());
+
         PostBean postBean = new PostBean();
         postBean.setPostId(registerForm.getDeptId());
         postBean.setPostName(userDAO.getDeptNameByID(registerForm.getDeptId()));
@@ -39,10 +43,7 @@ public class RegisterAction extends Action {
         request.setAttribute("userBean", userBean);
         request.setAttribute("postBean", postBean);
         request.setAttribute("deptId", userBean.getPostBean().getPostId());
-        String empId = (String)request.getAttribute("empId");
-        if (empId != null && empId.length() > 00) {
-            request.setAttribute("empId", empId);
-        }
+
         return mapping.findForward("confirm");
     }
 }

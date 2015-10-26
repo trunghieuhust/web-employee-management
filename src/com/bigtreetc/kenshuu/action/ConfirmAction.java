@@ -35,8 +35,18 @@ public class ConfirmAction extends Action {
         postBean.setPostId(registerForm.getDeptId());
         userBean.setPostBean(postBean);
 
-        System.out.println(request.getAttribute("empId"));
-//        userDAO.insertNewEmployee(userBean);
+        int result = 0;
+        System.out.println(registerForm.getEmpId());
+        if (registerForm.getEmpId() == 0) {
+            // 社員情報登録の場合
+            result = userDAO.insertNewEmployee(userBean);
+        } else {
+            // 社員情報更新の場合
+            userBean.setEmpId(registerForm.getEmpId());
+            result = userDAO.updateEmployee(userBean);
+            request.setAttribute("empId", registerForm.getEmpId());
+        }
+        request.setAttribute("result", result);
         return mapping.findForward("success");
     }
 }
