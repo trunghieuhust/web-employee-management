@@ -51,7 +51,7 @@
           <bean:define id="deptId" name="employee" property="postBean.postId"
             toScope="request"></bean:define>
           <bean:define id="empId" name="employee" property="empId"></bean:define>
-          <td><html:form method="get" action="/update.do">
+          <td><html:form method="post" action="/update.do" >
               <html:hidden name="employee" property="empId" />
               <html:hidden name="employee" property="empPass" />
               <html:hidden name="employee" property="empName" />

@@ -11,7 +11,17 @@
 <title>社員情報登録入力</title>
 </head>
 <body>
-  <html:form action="/register.do" method="get">
+  <%
+    String actionURL = "/register.do";
+  %>
+
+  <logic:present name="empId">
+    <%
+      actionURL = "/confirm.do";
+    %>
+  </logic:present>
+
+  <html:form action="<%=actionURL%>" method="get">
     <p>
       パスワード：
       <html:text property="empPass"></html:text>
@@ -64,8 +74,7 @@
       <html:submit>確認</html:submit>
     </p>
     <logic:present name="empId">
-      <html:hidden value=<%=request.getAttribute("empId").toString()%>  property="empId"
-        />
+      <html:hidden value="${empId}" property="empId" />
     </logic:present>
   </html:form>
 

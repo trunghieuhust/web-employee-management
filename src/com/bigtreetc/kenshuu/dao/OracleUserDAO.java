@@ -1,6 +1,7 @@
 package com.bigtreetc.kenshuu.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,7 +50,7 @@ public class OracleUserDAO implements UserDAO {
             usersList = convertToListUsers(resultSet);
             ConnectionPool.release(conn, statement, resultSet);
         } catch (SQLException e1) {
-            System.exit(1);
+            e1.printStackTrace();
         }
         return usersList;
 
@@ -172,7 +173,8 @@ public class OracleUserDAO implements UserDAO {
             while (resultSet.next()) {
                 UserBean user = new UserBean();
                 user.setAddress(resultSet.getString(ADDRESS));
-                user.setBirthday(resultSet.getString(BIRTHDAY));
+                Date birthday = resultSet.getDate(BIRTHDAY);
+                user.setBirthday(birthday.toString());
                 PostBean postBean = new PostBean();
                 postBean.setPostId(resultSet.getInt(DEPT_ID));
                 postBean.setPostName(resultSet.getString(DEPT_NAME));
