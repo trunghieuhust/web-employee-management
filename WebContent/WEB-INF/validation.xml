@@ -5,7 +5,7 @@
           "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
 
 <form-validation>
- <formset>
+ 	<formset>
                <form name="loginForm">
                       <field property="id"
                                   depends="required">
@@ -24,9 +24,6 @@
                              </var>
                       </field>
                </form>
-               <form name="registerForm">
-              <field property="empPass" depends="required">
-        </field>
-               </form>
-       </formset>
+
+	</formset>
 </form-validation>

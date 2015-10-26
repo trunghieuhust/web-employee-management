@@ -7,6 +7,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 import com.bigtreetc.kenshuu.bean.PostBean;
 import com.bigtreetc.kenshuu.bean.UserBean;
@@ -19,6 +21,14 @@ public class ConfirmAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse httpservletresponse)
             throws Exception {
+        // ログインチェック
+        if (request.getSession().getAttribute("current_user") == null) {
+            ActionMessages errors = new ActionMessages();
+            errors.add("login_required", new ActionMessage("login_required", "errors.login_required"));
+            saveErrors(request, errors);
+            return mapping.findForward("login");
+        }
+
         DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.ORACLE);
         UserDAO userDAO = daoFactory.getUserDAO();
         RegisterForm registerForm = (RegisterForm) form;

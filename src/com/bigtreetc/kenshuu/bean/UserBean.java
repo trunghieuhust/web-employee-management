@@ -1,6 +1,12 @@
 package com.bigtreetc.kenshuu.bean;
 
 public class UserBean {
+
+    public static final int MALE = 1;
+    public static final int FEMALE = 2;
+    public static final int ADMIN = 2;
+    public static final int USER = 1;
+
     private int empId;
     private String empPass;
     private String empName;

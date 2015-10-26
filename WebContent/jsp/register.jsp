@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <html:form action="/register.do" method="post">
+  <html:form action="/input.do" method="post">
     <logic:present name="empId">
       <p>ID=${empId }情報更新入力</p>
     </logic:present>

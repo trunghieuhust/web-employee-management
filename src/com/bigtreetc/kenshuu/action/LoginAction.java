@@ -20,6 +20,11 @@ public class LoginAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        if (request.getSession().getAttribute("current_user") != null) {
+            System.out.println("already login.");
+            return mapping.findForward("success");
+        }
+        System.out.println("logging in.");
         LoginForm loginForm = (LoginForm) form;
 
         String empId = loginForm.getId();

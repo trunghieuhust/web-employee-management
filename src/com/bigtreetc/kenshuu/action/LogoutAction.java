@@ -14,6 +14,9 @@ public class LogoutAction extends Action {
             HttpServletRequest request, HttpServletResponse httpservletresponse)
             throws Exception {
         request.getSession().removeAttribute("current_user");
+        if (request.getSession().getAttribute("current_user") == null) {
+            System.out.println("logged out.");
+        }
         return mapping.findForward("success");
     }
 }

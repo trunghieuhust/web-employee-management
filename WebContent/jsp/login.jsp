@@ -20,7 +20,8 @@
     <br />
     <html:errors property="login_required" />
     <br />
-    <input type="submit" value="ログイン" />
+    <html:errors property="permission_denied" />
+    <br /> <input type="submit" value="ログイン" />
   </form>
 </body>
 </html>

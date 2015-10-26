@@ -34,7 +34,6 @@ public class ViewListAction extends Action {
 
         List<UserBean> userList = userDAO.getAllUser();
         request.setAttribute("userList", userList);
-
         return mapping.findForward("view_list");
     }
 }

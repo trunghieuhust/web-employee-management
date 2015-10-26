@@ -7,6 +7,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 import com.bigtreetc.kenshuu.dao.DAOFactory;
 import com.bigtreetc.kenshuu.dao.UserDAO;
@@ -18,6 +20,14 @@ public class DeleteAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        // ログインしない場合、ログイン画面が移動されます
+        if (request.getSession().getAttribute("current_user") == null) {
+            ActionMessages errors = new ActionMessages();
+            errors.add("login_required", new ActionMessage("login_required",
+                    "errors.login_required"));
+            saveErrors(request, errors);
+            return mapping.findForward("login");
+        }
 
         DeleteForm deleteForm = (DeleteForm) form;
 
