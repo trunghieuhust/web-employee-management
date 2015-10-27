@@ -15,5 +15,8 @@
   <logic:equal name="result" value="0">
   エラーが発生します。ID=<bean:write name="result" />のユーザーが削除できません。
   </logic:equal>
+    <form action="<%=request.getContextPath()%>/viewList.do">
+    <input type="submit" value="戻る" />
+  </form>
 </body>
 </html>

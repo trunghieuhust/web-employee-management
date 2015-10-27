@@ -5,7 +5,7 @@
           "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
 
 <form-validation>
- 	<formset>
+   <formset>
                <form name="loginForm">
                       <field property="id"
                                   depends="required">
@@ -24,6 +24,25 @@
                              </var>
                       </field>
                </form>
+        <form name="registerForm">
+          <field property="empPass" depends="required,mask">
+                        <arg name="required" key="labels.id" position="0"/>
+            <arg name="mask" key="labels.password" position="0"/>
+            <var>
+              <var-name>mask</var-name>
+              <var-value>^[0-9a-zA-Z]*$</var-value>
+            </var>
+          </field>
+          <field property="address" depends="required">
+            <arg name="required" key="labels.address" position="0"/>
+          </field>
+          <field property="empName" depends="required">
+            <arg name="required" key="labels.name" position="0"/>
+          </field>
+      <field property="birthday" depends="required">
+        <arg name="required" key="labels.birthday" position="0"/>
+      </field>
+        </form>
 
-	</formset>
+  </formset>
 </form-validation>

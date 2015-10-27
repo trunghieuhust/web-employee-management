@@ -32,16 +32,17 @@ public class UpdateAction extends Action {
         String empId = request.getParameter("empId");
         if (empId == null || empId.length() == 0) {
             ActionMessages errors = new ActionMessages();
-            errors.add("id_field_not_found", new ActionMessage("id_field_not_found",
-                    "errors.id_field_not_found"));
+            errors.add("id_field_not_found", new ActionMessage(
+                    "id_field_not_found", "errors.id_field_not_found"));
             saveErrors(request, errors);
             return mapping.findForward("error");
         }
 
-        UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.ORACLE).getUserDAO();
+        UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.ORACLE)
+                .getUserDAO();
 
         UserBean userBean = userDAO.searchByID(Integer.parseInt(empId));
-//        request.setAttribute("userBean", userBean);
+        // request.setAttribute("userBean", userBean);
         request.setAttribute("empId", empId);
 
         return mapping.findForward("update");

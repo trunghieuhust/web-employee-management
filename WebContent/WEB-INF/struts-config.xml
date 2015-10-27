@@ -19,9 +19,9 @@
       <forward name="success" redirect="true" path="/login.do"/>
     </action>
     <action path="/viewList" type="com.bigtreetc.kenshuu.action.ViewListAction" scope="request">
-      <forward name="view_list" path="/WEB-INF/jsp/view_list.jsp"/>
+      <forward name="view_list" path="/viewListlayout.do"/>
     </action>
-    <action path="/input" name="registerForm" type="com.bigtreetc.kenshuu.action.RegisterAction" scope="request" input="/jsp/register.jsp">
+    <action path="/input" name="registerForm" type="com.bigtreetc.kenshuu.action.RegisterAction" scope="request" validate="true" input="/jsp/register.jsp">
       <forward name="confirm" path="/WEB-INF/jsp/confirm.jsp"/>
     </action>
     <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
@@ -36,7 +36,7 @@
     <action path="/delete" name="deleteForm" type="com.bigtreetc.kenshuu.action.DeleteAction" scope="request">
       <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"/>
     </action>
-     <action path="/layout" type="org.apache.struts.actions.ForwardAction" parameter="mainLayout"/>
+     <action path="/viewListlayout" type="org.apache.struts.actions.ForwardAction" parameter="viewListLayout"/>
   </action-mappings>
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
   <message-resources parameter="MessageResources"/>

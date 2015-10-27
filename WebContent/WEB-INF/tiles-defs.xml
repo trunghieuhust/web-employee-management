@@ -37,18 +37,15 @@
     end samples -->
 
     <definition name="mainLayout" path="/WEB-INF/jsp/layout.jsp">
-      <put name="title" value="ViewList"/>
+      <put name="title" value="main"/>
       <put name="header" value="/WEB-INF/jsp/header.jsp"/>
       <put name="menu" value="/WEB-INF/jsp/menu.jsp"/>
       <put name="main" value="/WEB-INF/jsp/main.jsp"/>
       <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
     </definition>
-      <definition name="viewListLayout" path="/WEB-INF/jsp/layout.jsp">
+      <definition name="viewListLayout" extends="mainLayout">
       <put name="title" value="ViewList"/>
-      <put name="header" value="/WEB-INF/jsp/header.jsp"/>
-      <put name="menu" value="/WEB-INF/jsp/menu.jsp"/>
       <put name="main" value="/WEB-INF/jsp/view_list.jsp"/>
-      <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
     </definition>
 
 </tiles-definitions>

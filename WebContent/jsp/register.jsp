@@ -8,73 +8,132 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="<%=request.getContextPath()%>/css/bootstrap.min.css"
+  rel="stylesheet">
 <title>社員情報入力</title>
 </head>
 <body>
+  <div class="span6">
+    <div class="wrap-form">
+      <html:form styleClass="form-horizontal" action="/input.do"
+        method="get">
+        <logic:present name="empId">
+          <div id="legend">
+            <legend class="form-title">社員情報更新入力</legend>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">ID</label>
+            <div class="col-sm-8">
+              <html:text property="empId" styleClass="form-control"
+                disabled="true"></html:text>
+            </div>
+          </div>
 
-  <html:form action="/input.do" method="post">
-    <logic:present name="empId">
-      <p>ID=${empId }情報更新入力</p>
-    </logic:present>
-    <p>
-      <logic:notPresent name="empId">
-        <p>社員情報登録入力</p>
-      </logic:notPresent>
-      パスワード：
-      <html:text property="empPass"></html:text>
+        </logic:present>
+        <logic:notPresent name="empId">
+          <div id="legend">
+            <legend class="form-title">社員情報登録入力</legend>
+          </div>
+        </logic:notPresent>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label">パスワード</label>
+          <div class="col-sm-8">
+            <html:text property="empPass" styleClass="form-control"></html:text>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label">社員名</label>
+          <div class="col-sm-8">
+            <html:text property="empName" styleClass="form-control"></html:text>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label class="col-sm-4 control-label">性別 </label>
+          <div class="col-sm-4 ">
+            <div class="radio my-radio">
+              <input type="radio" name="gender" value="1" class="radio"
+                checked="checked" /> 男性
+            </div>
+            <div class="radio my-radio">
+              <input type="radio" name="gender" value="2" class="radio" /> 女性
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label">住所</label>
+          <div class="col-sm-8">
+            <html:text property="address" styleClass="form-control" />
+          </div>
+        </div>
+
+        <logic:present name="empId">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 control-label">誕生日</label>
+            <div class="col-sm-8 input-append">
+              <html:text property="birthday" styleClass="form-control"></html:text>
+            </div>
+          </div>
+        </logic:present>
+
+        <logic:notPresent name="empId">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 control-label">誕生日</label>
+            <div id="datetimepicker4" class="col-sm-8 input-append">
+              <input data-format="yyyy-MM-dd" type="date" class="form-control"
+                id="birthday" placeholder="yyyy-MM-dd" name="birthday">
+            </div>
+          </div>
+        </logic:notPresent>
+
+
+        <div class="form-group form-inline">
+          <label class="col-sm-4 control-label">権限</label>
+          <div class="col-sm-4">
+            <div class="radio my-radio">
+
+              <input type="radio" name="authority" value="1" checked="checked" />
+              一般
+            </div>
+            <div class="radio my-radio">
+              <input type="radio" name="authority" value="2" /> 管理者
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label">部署</label>
+          <div class="col-sm-4">
+            <html:select property="deptId" styleClass="form-control"
+              styleId="sel1">
+              <html:option value="1">総務部</html:option>
+              <html:option value="2">営業部</html:option>
+              <html:option value="3">経理部</html:option>
+              <html:option value="4">資材部</html:option>
+            </html:select>
+          </div>
+        </div>
+        <logic:present name="empId">
+          <html:hidden value="${empId}" property="empId" />
+        </logic:present>
+        <div class="form-group form-inline">
+          <label class="col-sm-4 control-label"></label>
+          <div class="col-sm-8">
+            <html:submit styleClass="btn btn-info">確認</html:submit>
+          </div>
+        </div>
+      </html:form>
       <html:errors property="empPass" />
-    </p>
-    <p>
-      社員名：
-      <html:text property="empName"></html:text>
-
       <html:errors property="empName" />
-    </p>
-    <p>
-      性別：
-      <html:radio property="gender" value="1"></html:radio>
-      男性
-      <html:radio property="gender" value="2"></html:radio>
-      女性
       <html:errors property="gender" />
-    </p>
-    <p>
-      住所：
-      <html:text property="address"></html:text>
       <html:errors property="address" />
-    </p>
-    <p>
-      誕生日：
-      <html:text property="birthday"></html:text>
-      YYYY/MM/DD
       <html:errors property="birthday" />
-    </p>
-    <p>
-      権限：
-      <html:radio property="authority" value="1"></html:radio>
-      一般
-      <html:radio property="authority" value="2"></html:radio>
-      管理者
-
       <html:errors property="authority" />
-    </p>
-    <p>
-      部署：
-      <html:select property="deptId">
-        <html:option value="1">総務部</html:option>
-        <html:option value="2">営業部</html:option>
-        <html:option value="3">経理部</html:option>
-        <html:option value="4">資材部</html:option>
-      </html:select>
-    </p>
-    <logic:present name="empId">
-      <html:hidden value="${empId}" property="empId" />
-    </logic:present>
 
-    <p>
-      <html:submit>確認</html:submit>
-    </p>
-  </html:form>
-
+    </div>
+  </div>
 </body>
+
 </html>
