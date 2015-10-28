@@ -1,90 +1,120 @@
 @CHARSET "UTF-8";
+/* css cho main layout*/
+.wrapper {
+  display: inline-block;
+  width: 80%;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
 
+}
+.left-content {
+  display: inline-block;
+  float: left;
+}
+
+.right-content {
+  display: inline-block;
+  float: right;
+}
 /* css for form*/
-  .wrap-form{
-    width: 80%;
-    padding: 30px 0 10px 0;
-  }
-  .my-form .my-radio{
-    padding-top: 5px;
-    margin-right: 5px;
-  }
-  .my-form .my-radio input{
-    margin-right: 3px;
-    vertical-align: text-bottom;
-  }
-  .submit-button{
-    width: 100%;
-    height: 40px;
-    background-color: #39A333;
-    margin: 10px 0;
-    vertical-align: top;
-    font-size: 15px;
-    text-transform: uppercase;
-    color: #f0f0f0;
-    text-align: center;
-    border: 2px solid #3a7e19;
-    border-bottom: 2px solid #3a7e19;
-    border-radius: 4px;
-  }
-  .submit-button:hover{
-    opacity: 0.9;
-  }
-  .form-title{
-    padding: 10px 0;
-    color: #505050;
-    font-family: font-1;
-  }
-  .btn-success {
-    color: #fff;
-    background-color: #39A333;
-    border: 2px solid #3a7e19;
-  }
-  .glyphicon.glyphicon-plus {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-  }
-  #fileupload{
-    font-size: 14px;
-    position: relative;
-    display: inline-block;
-    margin-left: -110px;
-    width: 100px;
-    cursor: pointer;
-    opacity: 0;
-  }
-  input[type="file"] {
-    display: block;
-  }
-  .my-flag{
-    color: #d5452f;
-  }
-  span.my-flag{
-    margin-left: 5px;
-  }
-  .input-append .add-on, .input-prepend .add-on {
-    width: 32px;
-    height: 32px;
-    min-width: 16px;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 #ffffff;
-    background-color: #eeeeee;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    top: 1px;
-    position: absolute;
-    left: 85%;
-    cursor: pointer;
-  }
-  #BirthDay{
-    width: 85%;
-  }
+.wrap-form {
+  width: 80%;
+  padding: 30px 0 10px 0;
+}
+
+.my-form .my-radio {
+  padding-top: 5px;
+  margin-right: 5px;
+}
+
+.my-form .my-radio input {
+  margin-right: 3px;
+  vertical-align: text-bottom;
+}
+
+.submit-button {
+  width: 100%;
+  height: 40px;
+  background-color: #39A333;
+  margin: 10px 0;
+  vertical-align: top;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #f0f0f0;
+  text-align: center;
+  border: 2px solid #3a7e19;
+  border-bottom: 2px solid #3a7e19;
+  border-radius: 4px;
+}
+
+.submit-button:hover {
+  opacity: 0.9;
+}
+
+.form-title {
+  padding: 10px 0;
+  color: #505050;
+  font-family: font-1;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #39A333;
+  border: 2px solid #3a7e19;
+}
+
+.glyphicon.glyphicon-plus {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+#fileupload {
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+  margin-left: -110px;
+  width: 100px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+.my-flag {
+  color: #d5452f;
+}
+
+span.my-flag {
+  margin-left: 5px;
+}
+
+.input-append .add-on,.input-prepend .add-on {
+  width: 32px;
+  height: 32px;
+  min-width: 16px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 #ffffff;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  top: 1px;
+  position: absolute;
+  left: 85%;
+  cursor: pointer;
+}
+
+#BirthDay {
+  width: 85%;
+}

@@ -16,5 +16,6 @@
     <html:hidden property="empId" />
     <html:submit>確認</html:submit>
   </html:form>
+  <button name="back" onclick="history.back()">戻る</button>
 </body>
 </html>

@@ -62,6 +62,6 @@
     <html:hidden property="deptId" />
     <html:submit>保存</html:submit>
   </html:form>
+  <button name="back" onclick="history.back()">戻る</button>
 </body>
-
 </html>

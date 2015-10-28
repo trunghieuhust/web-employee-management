@@ -15,20 +15,16 @@
 <body>
   <table border="1" width="100%"  cellspacing="1">
     <tr>
-      <td colspan="2" height="100" align="center"><tiles:insert
+      <td height="100" align="center"><tiles:insert
           attribute="header" /></td>
     </tr>
     <tr>
-      <td width="200" height="100" align="center"><tiles:insert
-          attribute="menu" /></td>
       <td height="100" align="center">
-
-
       <tiles:insert attribute="main" />
       </td>
     </tr>
     <tr>
-      <td colspan="2" height="100" align="center"><tiles:insert
+      <td height="100" align="center"><tiles:insert
           attribute="footer" /></td>
     </tr>
   </table>

@@ -11,9 +11,12 @@
     <forward name="error" path="/WEB-INF/jsp/error.jsp"/>
   </global-forwards>
   <action-mappings>
-    <action path="/login" name="loginForm" type="com.bigtreetc.kenshuu.action.LoginAction" scope="request" validate="yes" input="/jsp/login.jsp">
+    <action path="/authen" name="loginForm" type="com.bigtreetc.kenshuu.action.AuthenticateAction" scope="request" validate="yes" input="/loginLayout.do">
       <forward name="success" redirect="true" path="/viewList.do"/>
-      <forward name="failed" path="/jsp/login.jsp"/>
+      <forward name="failed" path="/loginLayout.do"/>
+    </action>
+    <action path="/login" type="com.bigtreetc.kenshuu.action.LoginAction" scope="request">
+      <forward name="authen" path="/loginLayout.do"></forward>
     </action>
     <action path="/logout" type="com.bigtreetc.kenshuu.action.LogoutAction" scope="request">
       <forward name="success" redirect="true" path="/login.do"/>
@@ -21,14 +24,17 @@
     <action path="/viewList" type="com.bigtreetc.kenshuu.action.ViewListAction" scope="request">
       <forward name="view_list" path="/viewListlayout.do"/>
     </action>
-    <action path="/input" name="registerForm" type="com.bigtreetc.kenshuu.action.RegisterAction" scope="request" validate="true" input="/jsp/register.jsp">
+    <action path="/register" type="com.bigtreetc.kenshuu.action.RegisterAction" scope="request">
+      <forward name="register" path="/inputLayout.do"></forward>
+    </action>
+    <action path="/input" name="registerForm" type="com.bigtreetc.kenshuu.action.InputAction" scope="request" validate="true" input="/inputLayout.do">
       <forward name="confirm" path="/WEB-INF/jsp/confirm.jsp"/>
     </action>
     <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
       <forward name="success" path="/WEB-INF/jsp/save_success.jsp"/>
     </action>
     <action path="/update" name="registerForm" type="com.bigtreetc.kenshuu.action.UpdateAction" scope="request">
-      <forward name="update" path="/jsp/register.jsp"/>
+      <forward name="update" path="/inputLayout.do"/>
     </action>
     <action path="/confirmdelete" name="deleteForm" type="com.bigtreetc.kenshuu.action.ConfirmDeleteAction" scope="request">
       <forward name="delete" path="/WEB-INF/jsp/confirm_delete.jsp"/>
@@ -37,6 +43,9 @@
       <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"/>
     </action>
      <action path="/viewListlayout" type="org.apache.struts.actions.ForwardAction" parameter="viewListLayout"/>
+     <action path="/inputLayout" type="org.apache.struts.actions.ForwardAction" parameter="inputLayout"/>
+     <action path="/loginLayout" type="org.apache.struts.actions.ForwardAction" parameter="loginLayout"/>
+  <action path="/confirmLayout" type="org.apache.struts.actions.ForwardAction" parameter="confirmLayout"/>
   </action-mappings>
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
   <message-resources parameter="MessageResources"/>

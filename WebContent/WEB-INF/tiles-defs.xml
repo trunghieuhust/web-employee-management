@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
  <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
@@ -47,5 +47,15 @@
       <put name="title" value="ViewList"/>
       <put name="main" value="/WEB-INF/jsp/view_list.jsp"/>
     </definition>
+  <definition name="inputLayout" extends="mainLayout">
+    <put name="title" value="社員情報入力"/>
+    <put name="main" value="/WEB-INF/jsp/register.jsp"/>
+  </definition>
 
+  <definition name="loginLayout" path="/WEB-INF/jsp/layout_login.jsp">
+    <put name="title" value="ログイン"/>
+    <put name="header" value="/WEB-INF/jsp/header.jsp"/>
+    <put name="main" value="/WEB-INF/jsp/login.jsp"/>
+    <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
 </tiles-definitions>
