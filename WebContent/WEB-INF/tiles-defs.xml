@@ -41,7 +41,6 @@
       <put name="header" value="/WEB-INF/jsp/header.jsp"/>
       <put name="menu" value="/WEB-INF/jsp/menu.jsp"/>
       <put name="main" value="/WEB-INF/jsp/main.jsp"/>
-      <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
     </definition>
       <definition name="viewListLayout" extends="mainLayout">
       <put name="title" value="ViewList"/>
@@ -56,6 +55,5 @@
     <put name="title" value="ログイン"/>
     <put name="header" value="/WEB-INF/jsp/header.jsp"/>
     <put name="main" value="/WEB-INF/jsp/login.jsp"/>
-    <put name="footer" value="/WEB-INF/jsp/footer.jsp"/>
   </definition>
 </tiles-definitions>

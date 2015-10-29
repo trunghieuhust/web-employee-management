@@ -7,16 +7,70 @@
   overflow: hidden;
 }
 
+.custom-table-layout {
+  border-color: #eee;
+  border: 1px;
+  width: 100%;
+  border-style: solid;
 }
-.left-content {
-  display: inline-block;
-  float: left;
+/* css for login form*/
+.custom-field-set {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ccc;
+  padding: 5px;
 }
 
-.right-content {
-  display: inline-block;
-  float: right;
+.custom-btn {
+  padding-top: 10px;
+  margin-top: 10px;
 }
+
+.custom-text-form {
+  border-color: #e5e5e5;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #eee;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+body>.container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer>.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
 /* css for form*/
 .wrap-form {
   width: 80%;

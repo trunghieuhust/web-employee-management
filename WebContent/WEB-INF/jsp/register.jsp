@@ -30,14 +30,14 @@
       <div class="form-group">
         <label class="col-sm-4 control-label">パスワード</label>
         <div class="col-sm-8">
-          <html:text property="empPass" styleClass="form-control"></html:text>
+          <html:text property="empPass" styleClass="form-control" ></html:text>
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-4 control-label">社員名</label>
         <div class="col-sm-8">
-          <html:text property="empName" styleClass="form-control"></html:text>
+          <html:text property="empName" styleClass="form-control" ></html:text>
         </div>
       </div>
 

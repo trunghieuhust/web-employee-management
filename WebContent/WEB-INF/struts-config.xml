@@ -7,7 +7,7 @@
     <form-bean name="deleteForm" type="com.bigtreetc.kenshuu.form.DeleteForm"/>
   </form-beans>
   <global-forwards>
-    <forward name="login" path="/login.do"/>
+    <forward name="login" path="/loginLayout.do" redirect="true"/>
     <forward name="error" path="/WEB-INF/jsp/error.jsp"/>
   </global-forwards>
   <action-mappings>
