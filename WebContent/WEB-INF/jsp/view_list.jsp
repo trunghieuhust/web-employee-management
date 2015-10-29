@@ -41,52 +41,38 @@
           <td><bean:write name="employee" property="birthday" /></td>
         </logic:equal>
 
-        <bean:define id="deptId" name="employee" property="postBean.postId"
-          toScope="request"></bean:define>
-        <bean:define id="empId" name="employee" property="empId"></bean:define>
-        <td>
+      </c:if>
+      <td><bean:define id="deptId" name="employee"
+          property="postBean.postId" toScope="request"></bean:define> <bean:define
+          id="empId" name="employee" property="empId"></bean:define>
 
+        <div class="btn-group">
+          <html:form method="post" action="/update.do">
+            <html:hidden name="employee" property="empId" />
+            <html:hidden name="employee" property="empPass" />
+            <html:hidden name="employee" property="empName" />
+            <html:hidden name="employee" property="gender" />
+            <html:hidden name="employee" property="address" />
+            <html:hidden name="employee" property="birthday" />
+            <html:hidden name="employee" property="authority" />
+            <html:hidden value="<%=deptId.toString()%>" property="deptId" />
+            <button type="submit" class="btn btn-default"
+              aria-label="Left Align" style="margin-left: 2px">
+              <span class="glyphicon glyphicon-pencil " aria-hidden="true"></span>
+            </button>
+          </html:form>
+        </div> <logic:equal name="current_user" property="authority" value="2"
+          scope="session">
           <div class="btn-group">
-            <html:form method="post" action="/update.do"
-              >
+            <html:form action="/confirmdelete.do" method="post">
               <html:hidden name="employee" property="empId" />
-              <html:hidden name="employee" property="empPass" />
-              <html:hidden name="employee" property="empName" />
-              <html:hidden name="employee" property="gender" />
-              <html:hidden name="employee" property="address" />
-              <html:hidden name="employee" property="birthday" />
-              <html:hidden name="employee" property="authority" />
-              <html:hidden value="<%=deptId.toString()%>" property="deptId" />
-              <%--             <html:submit styleClass="btn btn-info">更新</html:submit> --%>
-              <!--             <a type="submit" class="glyphicon glyphicon-pencil" /> -->
               <button type="submit" class="btn btn-default"
                 aria-label="Left Align" style="margin-left: 2px">
-                <span class="glyphicon glyphicon-pencil " aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
             </html:form>
-            </div>
-      </c:if>
-      <logic:equal name="current_user" property="authority" value="1"
-        scope="session">
-        </td>
-      </logic:equal>
-      <logic:equal name="current_user" property="authority" value="2"
-        scope="session">
-                  <div class="btn-group">
-        <html:form action="/confirmdelete.do" method="post" >
-          <html:hidden name="employee" property="empId" />
-          <%--           <html:submit styleClass="btn btn-info">削除</html:submit> --%>
-          <!--           <a type="submit" class="glyphicon glyphicon-remove" /> -->
-          <button type="submit" class="btn btn-default"
-            aria-label="Left Align" style="margin-left: 2px">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-        </html:form>
-        </div>
-
-        </td>
+          </div></td>
       </logic:equal>
     </tr>
   </logic:iterate>
 </table>
-<a href="<%=request.getContextPath()%>/logout.do">Logout</a>

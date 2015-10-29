@@ -28,24 +28,28 @@
       <forward name="register" path="/inputLayout.do"></forward>
     </action>
     <action path="/input" name="registerForm" type="com.bigtreetc.kenshuu.action.InputAction" scope="request" validate="true" input="/inputLayout.do">
-      <forward name="confirm" path="/WEB-INF/jsp/confirm.jsp"/>
+      <forward name="confirm" path="/confirmLayout.do"/>
     </action>
     <action path="/confirm" name="registerForm" type="com.bigtreetc.kenshuu.action.ConfirmAction" scope="request">
-      <forward name="success" path="/WEB-INF/jsp/save_success.jsp"/>
+      <forward name="success" path="/saveLayout.do"/>
     </action>
     <action path="/update" name="registerForm" type="com.bigtreetc.kenshuu.action.UpdateAction" scope="request">
       <forward name="update" path="/inputLayout.do"/>
     </action>
     <action path="/confirmdelete" name="deleteForm" type="com.bigtreetc.kenshuu.action.ConfirmDeleteAction" scope="request">
-      <forward name="delete" path="/WEB-INF/jsp/confirm_delete.jsp"/>
+      <forward name="delete" path="/confirmdeleteLayout.do"/>
     </action>
     <action path="/delete" name="deleteForm" type="com.bigtreetc.kenshuu.action.DeleteAction" scope="request">
-      <forward name="result" path="/WEB-INF/jsp/delete_result.jsp"/>
+      <forward name="result" path="/deleteResultLayout.do"/>
     </action>
      <action path="/viewListlayout" type="org.apache.struts.actions.ForwardAction" parameter="viewListLayout"/>
      <action path="/inputLayout" type="org.apache.struts.actions.ForwardAction" parameter="inputLayout"/>
      <action path="/loginLayout" type="org.apache.struts.actions.ForwardAction" parameter="loginLayout"/>
   <action path="/confirmLayout" type="org.apache.struts.actions.ForwardAction" parameter="confirmLayout"/>
+    <action path="/saveLayout" type="org.apache.struts.actions.ForwardAction" parameter="saveLayout"/>
+    <action path="/confirmdeleteLayout" type="org.apache.struts.actions.ForwardAction" parameter="confirmdeleteLayout"/>
+    <action path="/deleteResultLayout" type="org.apache.struts.actions.ForwardAction" parameter="deleteResultLayout"/>
+
   </action-mappings>
   <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
   <message-resources parameter="MessageResources"/>

@@ -50,10 +50,28 @@
     <put name="title" value="社員情報入力"/>
     <put name="main" value="/WEB-INF/jsp/register.jsp"/>
   </definition>
+    <definition name="confirmLayout" extends="mainLayout">
+    <put name="title" value="社員情報入力"/>
+    <put name="main" value="/WEB-INF/jsp/confirm.jsp"/>
+  </definition>
+    <definition name="saveLayout" extends="mainLayout">
+    <put name="title" value="社員情報入力"/>
+    <put name="main" value="/WEB-INF/jsp/save_success.jsp"/>
+  </definition>
+    <definition name="confirmdeleteLayout" extends="mainLayout">
+    <put name="title" value="社員情報入力"/>
+    <put name="main" value="/WEB-INF/jsp/confirm_delete.jsp"/>
+  </definition>
+    <definition name="deleteResultLayout" extends="mainLayout">
+    <put name="title" value="社員情報入力"/>
+    <put name="main" value="/WEB-INF/jsp/delete_result.jsp"/>
+  </definition>
+
 
   <definition name="loginLayout" path="/WEB-INF/jsp/layout_login.jsp">
     <put name="title" value="ログイン"/>
     <put name="header" value="/WEB-INF/jsp/header.jsp"/>
     <put name="main" value="/WEB-INF/jsp/login.jsp"/>
   </definition>
+
 </tiles-definitions>
