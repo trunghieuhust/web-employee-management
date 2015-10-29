@@ -13,21 +13,31 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
+  <tiles:insert attribute="header" />
 
   <div class="container">
-    <table class="custom-table-layout" >
-      <tr>
-        <td colspan="2" height="100" align="center"><tiles:insert
-            attribute="header" /></td>
-      </tr>
-      <tr>
-        <td width="200" height="100" align="center"><tiles:insert
-            attribute="menu" /></td>
-        <td height="100" align="center"><tiles:insert attribute="main" />
-        </td>
-      </tr>
-    </table>
+    <div class="col-md-4">
+      <tiles:insert attribute="menu" />
+    </div>
+
+    <div class="col-md-8">
+      <tiles:insert attribute="main" />
+    </div>
+
   </div>
+
+  <!--     <table class="custom-table-layout" > -->
+  <!--       <tr> -->
+  <%--         <td colspan="2" height="100" align="center"><tiles:insert --%>
+  <%--             attribute="header" /></td> --%>
+  <!--       </tr> -->
+  <!--       <tr> -->
+  <%--         <td width="200" height="100" align="center"><tiles:insert --%>
+  <%--             attribute="menu" /></td> --%>
+  <%--         <td height="100" align="center"><tiles:insert attribute="main" /> --%>
+  <!--         </td> -->
+  <!--       </tr> -->
+  <!--     </table> -->
 
   <footer class="footer">
     <div class="container">

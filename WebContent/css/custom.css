@@ -40,6 +40,8 @@ html {
 body { /* Margin bottom by footer height */
   margin-bottom: 60px;
   background-color: #eee;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .footer {

@@ -10,7 +10,7 @@
       method="post">
       <logic:present name="empId">
         <div id="legend">
-          <legend class="form-title">社員情報更新入力</legend>
+          <legend class="form-title"><label style="text-align: center;">社員情報更新入力</label></legend>
         </div>
         <div class="form-group">
           <label class="col-sm-4 control-label">ID</label>
@@ -23,7 +23,7 @@
       </logic:present>
       <logic:notPresent name="empId">
         <div id="legend">
-          <legend class="form-title">社員情報登録入力</legend>
+          <legend class="form-title"><label style="text-align: center;">社員情報登録入力</label></legend>
         </div>
       </logic:notPresent>
 
@@ -178,7 +178,7 @@
       <div class="form-group form-inline">
         <label class="col-sm-4 control-label"></label>
         <div class="col-sm-8">
-          <html:submit styleClass="btn btn-info">確認</html:submit>
+          <html:submit styleClass="btn btn-primary">確認</html:submit>
         </div>
       </div>
     </html:form>

@@ -4,7 +4,7 @@
 <%@ taglib uri="/tags/struts-html" prefix="html"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<table class="table table-hover table-">
+<table class="table table-hover">
   <tr>
     <th>ID</th>
     <th>社員名</th>
