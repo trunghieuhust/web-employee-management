@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import com.bigtreetc.kenshuu.bean.UserBean;
 import com.bigtreetc.kenshuu.dao.DAOFactory;
 import com.bigtreetc.kenshuu.dao.UserDAO;
 import com.bigtreetc.kenshuu.form.DeleteForm;
@@ -28,7 +29,14 @@ public class DeleteAction extends Action {
             saveErrors(request, errors);
             return mapping.findForward("login");
         }
-
+        if (((UserBean) request.getSession().getAttribute("current_user"))
+                .getAuthority() != UserBean.ADMIN) {
+            ActionMessages errors = new ActionMessages();
+            errors.add("permission_denied", new ActionMessage(
+                    "permission_denied", "errors.permission_denied"));
+            saveErrors(request, errors);
+            return mapping.findForward("error");
+        }
         DeleteForm deleteForm = (DeleteForm) form;
 
         UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.ORACLE)
@@ -37,6 +45,8 @@ public class DeleteAction extends Action {
         int result = userDAO.deleteEmployee(deleteForm.getEmpId());
 
         request.setAttribute("result", result);
+
+        request.getSession().setAttribute("current_select", "2");
         return mapping.findForward("result");
     }
 

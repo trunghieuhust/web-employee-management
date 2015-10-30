@@ -14,6 +14,7 @@ public class RegisterAction extends Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+        request.getSession().setAttribute("current_select", "3");
         return mapping.findForward("register");
     }
 }

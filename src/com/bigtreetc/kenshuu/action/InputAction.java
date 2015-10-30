@@ -27,8 +27,10 @@ public class InputAction extends Action {
             saveErrors(request, errors);
             return mapping.findForward("login");
         }
+        RegisterForm registerForm = (RegisterForm) form;
+
         UserBean current_user = (UserBean) request.getSession().getAttribute("current_user");
-        if (current_user.getAuthority() != UserBean.ADMIN) {
+        if (current_user.getAuthority() != UserBean.ADMIN && current_user.getEmpId()!=registerForm.getEmpId()) {
             ActionMessages errors = new ActionMessages();
             errors.add("permission_denied", new ActionMessage("permission_denied", "errors.permission_denied"));
             saveErrors(request, errors);
@@ -37,7 +39,6 @@ public class InputAction extends Action {
         }
         DAOFactory daoFactory = DAOFactory.getDAOFactory(DAOFactory.ORACLE);
         UserDAO userDAO = daoFactory.getUserDAO();
-        RegisterForm registerForm = (RegisterForm) form;
 
         UserBean userBean = new UserBean();
 
@@ -61,6 +62,7 @@ public class InputAction extends Action {
         request.setAttribute("postBean", postBean);
         request.setAttribute("deptId", userBean.getPostBean().getPostId());
 
+        request.getSession().setAttribute("current_select", "3");
         return mapping.findForward("confirm");
     }
 }

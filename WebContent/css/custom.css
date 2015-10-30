@@ -42,6 +42,7 @@ body { /* Margin bottom by footer height */
   background-color: #eee;
   padding-top: 30px;
   padding-bottom: 30px;
+  font-size: large;
 }
 
 .footer {
@@ -51,6 +52,7 @@ body { /* Margin bottom by footer height */
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
+  font-size: small;
 }
 
 /* Custom page CSS

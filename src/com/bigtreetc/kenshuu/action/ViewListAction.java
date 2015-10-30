@@ -34,6 +34,8 @@ public class ViewListAction extends Action {
 
         List<UserBean> userList = userDAO.getAllUser();
         request.setAttribute("userList", userList);
+
+        request.getSession().setAttribute("current_select", "2");
         return mapping.findForward("view_list");
     }
 }

@@ -19,11 +19,11 @@ public class OracleUserDAO implements UserDAO {
     private static final String SQL_SEARCH_BY_NAME_POSTFIX = "WHERE emp_name LIKE ?";
     private static final String SQL_SEARCH_BY_GENDER_POSTFIX = "WHERE gender = ?";
     private static final String SQL_SEARCH_BY_DEPARTMENT_POSTFIX = "WHERE e.dept_id = ?";
-    private static final String SQL_INSERT_NEW_EMP = "INSERT INTO EMP_TABLE (emp_id,emp_pass, emp_name, gender, address, birthday, dept_id) values (sq_empId.nextval,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_NEW_EMP = "INSERT INTO EMP_TABLE (emp_id,emp_pass, emp_name, gender, address, birthday, dept_id,authority) values (sq_empId.nextval,?,?,?,?,?,?,?)";
     private static final String SQL_DELETE_EMP = "DELETE FROM EMP_TABLE WHERE EMP_ID= ?";
     private static final String SQL_CHECK_EXISTED = "SELECT COUNT(*) AS total FROM emp_table WHERE emp_id = ?";
-    private static final String SQL_UPDATE_EXISTED_USER = "UPDATE EMP_TABLE SET emp_pass = ?, emp_name = ?, gender = ?, address = ?, birthday = ?, dept_id = ? WHERE emp_id = ?";
-    private static final String SQL_IS_ADMIN = "SELECT is_admin FROM EMP_TABLE WHERE emp_id = ?";
+    private static final String SQL_UPDATE_EXISTED_USER = "UPDATE EMP_TABLE SET emp_pass = ?, emp_name = ?, gender = ?, address = ?, birthday = ?, dept_id = ?, authority = ? WHERE emp_id = ?";
+    private static final String SQL_IS_ADMIN = "SELECT is_admin FROM EMP_TABLE WHERE emp_id = ?" ;
     private static final String SQL_AUTHENTICATE = "SELECT COUNT(*) AS total FROM emp_table WHERE emp_id = ? AND emp_pass = ?";
     private static final String SQL_GET_ALL_DEPT = "select * from dept_table";
     private static final String SQL_GET_DEPT_NAME_BY_ID = "select dept_name from dept_table where dept_id= ?";
@@ -96,6 +96,7 @@ public class OracleUserDAO implements UserDAO {
             preparedStatement.setString(4, user.getAddress());
             preparedStatement.setString(5, user.getBirthday());
             preparedStatement.setInt(6, user.getPostBean().getPostId());
+            preparedStatement.setInt(7, user.getAuthority());
             affectedCount = preparedStatement.executeUpdate();
             ConnectionPool.release(conn, preparedStatement);
         } catch (SQLException e) {
@@ -143,6 +144,7 @@ public class OracleUserDAO implements UserDAO {
         }
         return false;
     }
+//"UPDATE EMP_TABLE SET emp_pass = ?, emp_name = ?, gender = ?, address = ?, birthday = ?, dept_id = ?, authority = ? WHERE emp_id = ?";
 
     @Override
     public int updateEmployee(UserBean user) {
@@ -158,7 +160,8 @@ public class OracleUserDAO implements UserDAO {
             preparedStatement.setString(4, user.getAddress());
             preparedStatement.setString(5, user.getBirthday());
             preparedStatement.setInt(6, user.getPostBean().getPostId());
-            preparedStatement.setInt(7, user.getEmpId());
+            preparedStatement.setInt(7, user.getAuthority());
+            preparedStatement.setInt(8, user.getEmpId());
             affectedCount = preparedStatement.executeUpdate();
             ConnectionPool.release(conn, preparedStatement);
         } catch (SQLException e) {

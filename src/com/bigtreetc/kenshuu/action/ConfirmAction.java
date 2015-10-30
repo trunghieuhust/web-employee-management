@@ -49,14 +49,24 @@ public class ConfirmAction extends Action {
         System.out.println(registerForm.getEmpId());
         if (registerForm.getEmpId() == 0) {
             // 社員情報登録の場合
+            if (((UserBean) request.getSession().getAttribute("current_user"))
+                    .getAuthority() != UserBean.ADMIN) {
+                ActionMessages errors = new ActionMessages();
+                errors.add("permission_denied", new ActionMessage(
+                        "permission_denied", "errors.permission_denied"));
+                saveErrors(request, errors);
+                return mapping.findForward("error");
+            }
             result = userDAO.insertNewEmployee(userBean);
         } else {
             // 社員情報更新の場合
             userBean.setEmpId(registerForm.getEmpId());
             result = userDAO.updateEmployee(userBean);
+            System.out.println(userBean.getAuthority());
             request.setAttribute("empId", registerForm.getEmpId());
         }
         request.setAttribute("result", result);
         return mapping.findForward("success");
     }
+
 }

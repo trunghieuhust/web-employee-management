@@ -10,10 +10,6 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import com.bigtreetc.kenshuu.bean.UserBean;
-import com.bigtreetc.kenshuu.dao.DAOFactory;
-import com.bigtreetc.kenshuu.dao.UserDAO;
-
 public class UpdateAction extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -38,10 +34,10 @@ public class UpdateAction extends Action {
             return mapping.findForward("error");
         }
 
-        UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.ORACLE)
-                .getUserDAO();
+//        UserDAO userDAO = DAOFactory.getDAOFactory(DAOFactory.ORACLE)
+//                .getUserDAO();
 
-        UserBean userBean = userDAO.searchByID(Integer.parseInt(empId));
+//        UserBean userBean = userDAO.searchByID(Integer.parseInt(empId));
         // request.setAttribute("userBean", userBean);
         request.setAttribute("empId", empId);
 

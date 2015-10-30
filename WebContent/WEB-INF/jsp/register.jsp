@@ -16,6 +16,7 @@
   UserBean currentUser = (UserBean) request.getSession()
       .getAttribute("current_user");
 %>
+
 <%
   boolean isReadOnly = true;
 %>
@@ -43,7 +44,13 @@
               disabled="true"></html:text>
           </div>
         </div>
-
+        <%
+          if (currentUser.getEmpId() == Integer.parseInt(request
+                  .getAttribute("empId").toString())) {
+                request.getSession()
+                    .setAttribute("current_select", "1");
+              }
+        %>
       </logic:present>
       <logic:notPresent name="empId">
         <div id="legend">
@@ -338,7 +345,7 @@
             } else {
           %>
           <html:select property="deptId" styleClass="form-control"
-            styleId="sel1" >
+            styleId="sel1">
             <html:option value="1">総務部</html:option>
             <html:option value="2">営業部</html:option>
             <html:option value="3">経理部</html:option>
@@ -352,12 +359,17 @@
       <logic:present name="empId">
         <html:hidden value="${empId}" property="empId" />
       </logic:present>
-      <div class="form-group form-inline">
-        <label class="col-sm-4 control-label"></label>
-        <div class="col-sm-8">
-          <html:submit styleClass="btn btn-primary">確認</html:submit>
+
+      <c:if
+        test="${current_user.authority ==2 || current_user.empId == empId }">
+        <div class="form-group form-inline">
+          <label class="col-sm-4 control-label"></label>
+          <div class="col-sm-8">
+            <html:submit styleClass="btn btn-primary">確認</html:submit>
+          </div>
         </div>
-      </div>
+      </c:if>
+
     </html:form>
     <html:errors property="empPass" />
     <html:errors property="empName" />
